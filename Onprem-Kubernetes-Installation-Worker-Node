@@ -6,7 +6,7 @@ sudo hostnamectl set-hostname Worker-Node-01
 # 2) Update and upgrade the systemm
 sudo apt update && sudo apt upgrade -y
 
-# 3) Disable swap (Required for Kubelet)
+# 3) Disable swap (Required for Kubelet to)
 sudo swapoff -a
 sudo sed -i '/ swap / s/^/#/' /etc/fstab
 
