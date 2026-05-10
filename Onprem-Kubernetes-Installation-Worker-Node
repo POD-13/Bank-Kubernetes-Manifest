@@ -3,14 +3,14 @@
 # 1) Set Hostname
 sudo hostnamectl set-hostname Worker-Node-01
 
-# 2) Update and upgrade the system
+# 2) Update and upgrade the systemm
 sudo apt update && sudo apt upgrade -y
 
 # 3) Disable swap (Required for Kubelet)
 sudo swapoff -a
 sudo sed -i '/ swap / s/^/#/' /etc/fstab
 
-# 4) Enable Kernel Modules and Sysctl Settings
+# 4) Enable Kernel Modules and Sysctl Settingss
 sudo modprobe overlay
 sudo modprobe br_netfilter
 
