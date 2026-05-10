@@ -1,11 +1,11 @@
-A StatefulSet is a Kubernetes controller used to manage stateful applications, where each Pod needs:
+#A StatefulSet is a Kubernetes controller used to manage stateful applications, where each Pod needs:
 
-a stable identity
-a stable network name
-persistent storage
+#a stable identity
+#a stable network name
+#persistent storage
 
 #Persistent Storage
-Each Pod gets its own PersistentVolumeClaim (PVC).
+#Each Pod gets its own PersistentVolumeClaim (PVC).
 
 
 apiVersion: apps/v1
