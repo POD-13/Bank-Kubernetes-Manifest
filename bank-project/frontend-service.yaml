@@ -2,11 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: bank-frontend-service
+  namespace: banking
 spec:
   selector:
-    app: frontend-banking-deployment
+    app: bank-frontend-deployment
   ports:
     - protocol: TCP
       port: 3000
       targetPort: 3000
-  type: ClusterIP 
+  type: ClusterIP

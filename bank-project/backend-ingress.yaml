@@ -2,20 +2,19 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: bank-ingress
+  namespace: banking
   annotations:
-    kubernetes.io/ingress.class: "external-nginx"
-    cert-manager.io/cluster-issuer: http-01-production
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
-  ingressClassName: external-nginx
+  ingressClassName: nginx
   tls:
   - hosts:
-    - bankapi.teamcloudup.online  # bankend url
-    - bank.teamcloudup.online     # frontend url
-    secretName: bank-teamcloudup-online
+    - bankapi.pod13fintech.online
+    - bank.pod13fintech.online
+    secretName: bank-pod13fintech-tls
   rules:
-  - host: bank.teamcloudup.online
+  - host: bank.pod13fintech.online
     http:
       paths:
       - path: /
@@ -25,7 +24,7 @@ spec:
             name: bank-frontend-service
             port:
               number: 3000
-  - host: bankapi.teamcloudup.online
+  - host: bankapi.pod13fintech.online
     http:
       paths:
       - path: /
