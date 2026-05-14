@@ -10,8 +10,8 @@ spec:
 
   source:
     repoURL: https://github.com/POD-13/Bank-Kubernetes-Manifest.git
-    targetRevision: main                                      # Branch to watch
-    path: k8s/base                                           # Path inside the repo where manifests live
+    targetRevision: main                                      
+    path: bank-project                                           
 
   destination:
     server: https://kubernetes.default.svc
