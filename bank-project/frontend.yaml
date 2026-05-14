@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: bank-frontend-container
-        image: 547268988762.dkr.ecr.us-east-1.amazonaws.com/bank-frontend:  
+        image: 547268988762.dkr.ecr.us-east-1.amazonaws.com/bank-frontend:4
         ports:
         - containerPort: 3000
         env:
@@ -35,11 +35,11 @@ spec:
           httpGet:
             path: /
             port: 3000
-          initialDelaySeconds: 60
+          initialDelaySeconds: 10
           periodSeconds: 10
         livenessProbe:
           httpGet:
             path: /
             port: 3000
-          initialDelaySeconds: 120
-          periodSeconds: 20
+          initialDelaySeconds: 20
+          periodSeconds: 120
