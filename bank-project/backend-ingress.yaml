@@ -23,7 +23,7 @@ spec:
           service:
             name: bank-frontend-service
             port:
-              number: 3000
+              number: 80
   - host: bankapi.pod13fintech.online
     http:
       paths:
@@ -33,4 +33,4 @@ spec:
           service:
             name: bank-backend-service
             port:
-              number: 8080
+              number: 80
