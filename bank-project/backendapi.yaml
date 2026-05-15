@@ -5,6 +5,12 @@ metadata:
   namespace: banking
 spec:
   replicas: 1
+  revisionHistoryLimit: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
   selector:
     matchLabels:
       app: bank-backend-deployment
@@ -15,7 +21,7 @@ spec:
     spec:
       containers:
         - name: bank-backend-container
-          image: '547268988762.dkr.ecr.us-east-1.amazonaws.com/bank-backendapi:19'
+          image: 547268988762.dkr.ecr.us-east-1.amazonaws.com/bank-backendapi:19
           ports:
             - containerPort: 8080
           env:
@@ -46,7 +52,7 @@ spec:
                   key: DB_PASSWORD
           resources:
             requests:
-              cpu: 250m
+              cpu: 100m
               memory: 256Mi
             limits:
               cpu: 500m
@@ -65,4 +71,3 @@ spec:
             initialDelaySeconds: 90
             periodSeconds: 20
             failureThreshold: 3
- 

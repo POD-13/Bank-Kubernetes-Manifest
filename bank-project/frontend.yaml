@@ -5,6 +5,12 @@ metadata:
   namespace: banking
 spec:
   replicas: 1
+  revisionHistoryLimit: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
   selector:
     matchLabels:
       app: bank-frontend-deployment
@@ -26,20 +32,22 @@ spec:
               key: REACT_APP_API_URL
         resources:
           requests:
-            cpu: "100m"
-            memory: "512Mi"
+            cpu: 100m
+            memory: 256Mi
           limits:
-            cpu: "250m"
-            memory: "512Mi"
+            cpu: 250m
+            memory: 512Mi
         readinessProbe:
           httpGet:
             path: /
             port: 80
           initialDelaySeconds: 60
           periodSeconds: 10
+          failureThreshold: 3
         livenessProbe:
           httpGet:
             path: /
             port: 80
           initialDelaySeconds: 120
           periodSeconds: 120
+          failureThreshold: 3
