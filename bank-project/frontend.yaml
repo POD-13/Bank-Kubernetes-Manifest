@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: bank-frontend-container
-        image: 547268988762.dkr.ecr.us-east-1.amazonaws.com/bank-frontend:4
+        image: 547268988762.dkr.ecr.us-east-1.amazonaws.com/bank-frontend:8
         ports:
         - containerPort: 80
         env:
@@ -27,10 +27,10 @@ spec:
         resources:
           requests:
             cpu: "100m"
-            memory: "128Mi"
+            memory: "256Mi"
           limits:
             cpu: "250m"
-            memory: "256Mi"
+            memory: "512Mi"
         readinessProbe:
           httpGet:
             path: /
