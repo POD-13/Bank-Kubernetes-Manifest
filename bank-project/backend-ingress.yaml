@@ -33,4 +33,4 @@ spec:
           service:
             name: bank-backend-service
             port:
-              number: 80
+              number: 8080
